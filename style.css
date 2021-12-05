@@ -1,0 +1,178 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, rgb(240, 204, 128), rgb(236, 169, 169));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-player{
+    background: rgba(0, 0, 0, 0.1);
+    width: 900px;
+    min-height: 500px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+}
+
+video{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.video-controllers{
+    position: absolute;
+    z-index: 99;
+    background: rgba(85, 85, 85, 0.5);
+    width: 100%;
+    bottom: 0;
+    padding: 0 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+}
+
+.video-player:hover .video-controllers{
+    transform: translateY(0);
+}
+
+.video-time {
+    float: right;
+    margin: 5px;
+    color: #fff;
+}
+
+.video-time span {
+    font-weight: 700;
+}
+
+.progress{
+    width: 100%;
+    height: 20px;
+    background: transparent;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.progress::-webkit-progress-bar{
+    background-color: #000e1480;
+    border-radius: 3px;
+}
+.progress::-webkit-progress-value {
+    background-color: #5d0499;
+    border-radius: 3px;
+}
+
+.controll-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.controll-buttons > div{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.fas, input[type="range"]{
+    cursor: pointer;
+    color: #999;
+    font-size: 25px;
+}
+
+.fas:hover{
+    color: #9a04ff;
+}
+
+.fa-bars{
+    font-size: 25px;
+}
+
+.fa-fast-backward,
+.fa-fast-forward{
+    margin: 0 15px;
+}
+
+.fa-fast-backward{
+    opacity: 1;
+}
+
+.fa-play,
+.fa-pause{
+    font-size: 30px;
+    padding: 10px;
+    display: none;
+}
+
+.fa-stop-circle{
+    margin-right: 15px;
+}
+
+.fa-play.active,
+.fa-pause.active{
+    display: block;
+}
+
+.controll-buttons p{
+    display: flex;
+    align-items: center;
+}
+
+.controll-buttons p span{
+    font-size: 20px;
+    color: #fff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 5px;
+    width: 40px;
+    text-align: right;
+}
+
+.mute{
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.controll-buttons p input{
+    -webkit-appearance: none;
+    height: 3px;
+    background: #999;
+    outline: none;
+}
+
+.controll-buttons p input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 10px;
+    height: 20px;
+    background: #9900ff;
+}
+
+.controll-buttons p .speed-up{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #999;
+    background: none;
+    outline: none;
+    color: #999;
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.controll-buttons p .speed-up.active{
+    color: #9900ff;
+    border-color: #9900ff;
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
